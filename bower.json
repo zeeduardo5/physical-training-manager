@@ -1,0 +1,15 @@
+{
+  "name": "physical-activity",
+  "authors": [
+    "José Assunção <jeras24@hotmail.com>"
+  ],
+  "description": "Backbone.js application",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.1.0",
+    "backbone": "^1.3.3",
+    "jquery": "^3.1.0",
+    "underscore": "^1.8.3"
+  }
+}
