@@ -18,7 +18,6 @@ window.PhysicalManager = {
       var trainingsView = new PhysicalManager.Views.Trainings({
         collection: trainings
       });
-
       $('.main-container').html(trainingsView.render().$el);
     });
 

@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <div class="container">
+      <div class="container text-center bg-primary">
         <h1>Physical Activity App</h1>
       </div>
     </header>
@@ -23,51 +23,61 @@
     <script type="text/template" id="tpl-trainings">
       <h2 class="page-header text-center">List of trainings</h2>
       <p class="text-center">
-        <a href="#trainings/new" class="btn btn-lg btn-outline">Add Training</a>
+        <a href="#trainings/new" class="btn btn-primary">Add Training</a>
       </p>
       <div class="container">
-       <table class="table table-striped">
-        <thead>
-          <tr>
-              <th>Time Spent (h)</th>
-              <th>Type</th>
-              <th>Date</th>
-          </tr>
-        </thead>
-        <tbody class="trainings-container"></tbody>
-        </table>
+        <div class="panel panel-primary">
+          <div class="panel-heading">hours of Workout</div>
+            <div class="panel-body">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                          <th>Time Spent (h)</th>
+                          <th>Type</th>
+                          <th>Date</th>
+                          <th></th>
+                      </tr>
+                    </thead>
+                  <tbody class="trainings-container"></tbody>
+                </table>
+              </div>
+         </div>
       </div>
     </script>
     <script type="text/template" id="tpl-training">
             <td><%- time %></td>
             <td><%- type %></td>
             <td><%- date %></td>
-            <td><a href="#trainings/edit/<%- id %>"><span class="glyphicon glyphicon-pencil"></span></a></td>
             <td><a href="#trainings/delete/<%- id %>" class="delete-training"><span class="glyphicon glyphicon-trash"></span></a></td>
     </script>
     <script type="text/template" id="tpl-new-training">
     <div class="container">
         <h2 class="page-header text-center"><%= isNew ? 'Create' : 'Edit' %> Workout Log</h2>
-        <form role="form" class="form-inline training-form">
-          <div class="form-group">
-              <input type="number" class="form-control training-time-input" placeholder="Time-spent (H)"value="<%- time %>">
-          </div>
-          <div class="form-group">
-              <select class="form-control training-type-input">
-                  <option value="">--select workout--</option>
-                  <option value="Running">Running</option>
-                  <option value="Hiking">Hiking</option>
-                  <option value="Flying">Flying</option>
-              </select>
-          </div>
-          <div class="form-group">
-              <input type="date" class="form-control training-date-input" value="<%- date %>">
-          </div>
-          <div class="form-group">
-              <button type="submit" class="btn btn-success">Add</button>
-              <a href="#trainings" class="btn btn-danger">Cancel</a>
-          </div>
-        </form>
+        <div class="panel panel-info">
+          <div class="panel-heading">Add new item</div>
+              <div class="panel-body">
+                <form role="form" class="form-inline text-center training-form">
+                  <div class="form-group">
+                      <input type="number" class="form-control training-time-input" placeholder="Time-spent (H)"value="<%- time %>">
+                  </div>
+                  <div class="form-group">
+                      <select class="form-control training-type-input">
+                          <option value="Running">Run</option>
+                          <option value="Swimming">Swimming</option>
+                          <option value="Walk">Walk</option>
+                          <option value="Paddle">Paddle</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <input type="date" class="form-control training-date-input" value="<%- date %>">
+                  </div>
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-success">Add</button>
+                      <a href="#trainings" class="btn btn-danger">Cancel</a>
+                  </div>
+                </form>
+              </div>
+        </div>
     </div>
     </script>
     <script src="vendor/jquery/dist/jquery.js"></script>
