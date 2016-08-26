@@ -7,23 +7,98 @@
     <title>Physical Activity App</title>
     <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="app/css/main.css" rel="stylesheet">
-	
-	<script src="vendor/jquery/dist/jquery.js"></script>
-	<script src="vendor/underscore/underscore.js"></script>
-	<script src="vendor/backbone/backbone.js"></script>
   </head>
   <body>
     <header>
       <div class="container">
         <h1>Physical Activity App</h1>
-        <p>Simple Backbone.js  application</p>
       </div>
     </header>
-    <div class="container">
+    <div class="main-container">
       <div class="row">
         <div class="col-xs-12">
         </div>
       </div>
     </div>
+    <script type="text/template" id="tpl-trainings">
+      <h2 class="page-header text-center">List of trainings</h2>
+      <p class="text-center">
+        <a href="#trainings/new" class="btn btn-lg btn-outline">Add Training</a>
+      </p>
+      <div class="container">
+       <table class="table table-striped">
+        <thead>
+          <tr>
+              <th>Time Spent (h)</th>
+              <th>Type</th>
+              <th>Date</th>
+          </tr>
+        </thead>
+        <tbody class="trainings-container"></tbody>
+        </table>
+      </div>
+    </script>
+    <script type="text/template" id="tpl-training">
+            <td><%- time %></td>
+            <td><%- type %></td>
+            <td><%- date %></td>
+            <td><a href="#trainings/edit/<%- id %>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a href="#trainings/delete/<%- id %>" class="delete-training"><span class="glyphicon glyphicon-trash"></span></a></td>
+    </script>
+    <script type="text/template" id="tpl-new-training">
+    <div class="container">
+        <h2 class="page-header text-center"><%= isNew ? 'Create' : 'Edit' %> Workout Log</h2>
+        <form role="form" class="form-inline training-form">
+          <div class="form-group">
+              <input type="number" class="form-control training-time-input" placeholder="Time-spent (H)"value="<%- time %>">
+          </div>
+          <div class="form-group">
+              <select class="form-control training-type-input">
+                  <option value="">--select workout--</option>
+                  <option value="Running">Running</option>
+                  <option value="Hiking">Hiking</option>
+                  <option value="Flying">Flying</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <input type="date" class="form-control training-date-input" value="<%- date %>">
+          </div>
+          <div class="form-group">
+              <button type="submit" class="btn btn-success">Add</button>
+              <a href="#trainings" class="btn btn-danger">Cancel</a>
+          </div>
+        </form>
+    </div>
+    </script>
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <script src="vendor/underscore/underscore.js"></script>
+    <script src="vendor/backbone/backbone.js"></script>
+    <script src="app/js/App.js"></script>
+    <script src="app/js/router.js"></script>
+    <script src="app/js/views/training.js"></script>
+    <script src="app/js/views/trainings.js"></script>
+    <script src="app/js/views/trainingForm.js"></script>
+    <script src="app/js/models/training.js"></script>
+    <script src="app/js/collections/trainingcollection.js"></script>
+    <script>
+      $(function() {
+        PhysicalManager.start({
+          trainings: [
+            {
+              id: 1,
+              time : '3',
+              type: 'Running',
+              date: '2000-02-22'
+            },
+            {
+              id: 2,
+              time : '4',
+              type: 'Hiking',
+              date: '2001-02-20'
+            }
+          ]
+        });
+      });
+    </script>
   </body>
 </html>
