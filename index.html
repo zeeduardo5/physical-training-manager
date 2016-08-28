@@ -56,9 +56,10 @@
         <div class="panel panel-info">
           <div class="panel-heading">Add new item</div>
               <div class="panel-body">
-                <form role="form" class="form-inline text-center training-form">
+                <form role="form" class="form-inline text-center training-form" id="workout-form">
                   <div class="form-group">
-                      <input type="number" class="form-control training-time-input" placeholder="Time-spent (H)"value="<%- time %>">
+                      <input type="number" class="form-control training-time-input" name="time" placeholder="Time-spent (H)"value="<%- time %>">
+                     <span class="help-block hidden"></span>
                   </div>
                   <div class="form-group">
                       <select class="form-control training-type-input">
@@ -69,7 +70,8 @@
                       </select>
                   </div>
                   <div class="form-group">
-                      <input type="date" class="form-control training-date-input" value="<%- date %>">
+                      <input type="date" class="form-control training-date-input" name="date" value="<%- date %>">
+                      <span class="help-block hidden"></span>
                   </div>
                   <div class="form-group">
                       <button type="submit" class="btn btn-success">Add</button>
@@ -83,6 +85,8 @@
     <script src="vendor/jquery/dist/jquery.js"></script>
     <script src="vendor/underscore/underscore.js"></script>
     <script src="vendor/backbone/backbone.js"></script>
+    <script src="vendor/backbone/backbone-validation.js"></script>
+    <script src="vendor/backbone/jquery.serializeObject.js"></script>
     <script src="app/js/App.js"></script>
     <script src="app/js/router.js"></script>
     <script src="app/js/views/training.js"></script>
