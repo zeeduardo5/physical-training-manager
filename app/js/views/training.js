@@ -18,6 +18,7 @@ PhysicalManager.Views.Training = Backbone.View.extend({
 
   onClickDelete: function(e) {
     e.preventDefault();
-    this.model.collection.remove(this.model);
+    $('#totalHours').text(this.model.collection.totalHours() - this.model.attributes.time + ' hours of Workout');
+    this.model.collection.remove(this.model.id);
   },
 });
