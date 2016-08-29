@@ -45,7 +45,7 @@ require(['underscore', 'jquery', 'jasmine-html', 'backbone'], function(_, $, jas
 
   var specs = [];
 
-  specs.push('spec/models/TodoSpec');
+  specs.push('spec/models/ModelSpec');
  /* specs.push('spec/views/ClearCompletedSpec');
   specs.push('spec/views/CountViewSpec');
   specs.push('spec/views/FooterViewSpec');
