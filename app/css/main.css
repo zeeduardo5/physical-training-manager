@@ -1,0 +1,13 @@
+body {
+  background: #dff0d8; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(circle, antiquewhite,#dff0d8, #428bca); /* Safari */
+  background: -o-radial-gradient(circle, antiquewhite,#dff0d8, #428bca); /* Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, antiquewhite,#dff0d8, #428bca); /* Firefox 3.6 to 15 */
+  background: radial-gradient(circle, antiquewhite,#dff0d8, #428bca); /* Standard syntax */
+}
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
