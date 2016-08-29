@@ -1,21 +1,22 @@
 require.config({
-  baseUrl: "../../js/",
+  baseUrl: "../../app",
   urlArgs: 'cb=' + Math.random(),
   paths: {
     jquery: '../vendor/jquery/dist/jquery',
     underscore: '../vendor/underscore/underscore',
     backbone: '../vendor/backbone/backbone',
-    jasmine: '../test/lib/jasmine',
-    'jasmine-html': '../test/lib/jasmine-html',
-    spec: '../test/jasmine/spec/'
+    jasmine: '../tests/lib/jasmine',
+    'jasmine-html': '../tests/lib/jasmine-html',
+    spec: '../tests/jasmine/spec/'
   },
   shim: {
-    underscore: {
-      exports: "_"
-    },
+    
     backbone: {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
+    },
+    underscore: {
+      exports: "_"
     },
     jasmine: {
       exports: 'jasmine'
@@ -27,10 +28,9 @@ require.config({
   }
 });
 
-
 window.store = "TestStore"; // override local storage store name - for testing
 
-require(['underscore', 'jquery', 'jasmine-html'], function(_, $, jasmine){
+require(['underscore', 'jquery', 'jasmine-html', 'backbone'], function(_, $, jasmine){
 
   var jasmineEnv = jasmine.getEnv();
   jasmineEnv.updateInterval = 1000;

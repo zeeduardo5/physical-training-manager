@@ -1,17 +1,25 @@
 describe('Model :: Todo', function() {
 
-  var mockData = { time : '3', type: 'Running', date: '2001-02-20' };
+  var mockData = { id :'1', time : '3', type: 'Running', date: '2001-02-20' };
  
   beforeEach(function() {
     var that = this,
         done = false;
+   
+   window.PhysicalManager = {
+      Models: {},
+      Collections: {},
+      Views: {},
+    }
 
-    require(['models/training'], function(Todo) {
+    require(['js/models/training'], function(Todo) {
       that.todo = new PhysicalManager.Models.Training();
       done = true;
     });
-    require(['collections/trainingcollection'], function(Todo) {
-      that.todos = new PhysicalManager.Collections.TrainingCollection();
+    require(['js/collections/trainingcollection'], function(Todo) {
+      that.todos = new PhysicalManager.Collections.TrainingCollection({
+
+      });
       done = true;
     });
 
@@ -25,15 +33,8 @@ describe('Model :: Todo', function() {
     var done = false,
         isDone = function(){ return done; };
 
-    this.todos.fetch({
-      success: function(c) {
-        c.each(function(m){
-          m.destroy();
-        });
-        done = true;
-      }
-    });
-
+    this.todos.remove(this.todo)
+    console.log(this.todos);
     waitsFor(isDone);
 
     done = false;
@@ -51,32 +52,26 @@ describe('Model :: Todo', function() {
 
     it('should create a todo', function() {
       var done = false;
-      var todo = this.todos.create(mockData, {
-        success: function() {
-          done = true;
-        }
-      });
-
-      waitsFor(function() { return done; });
+      var todo = this.todos.add(mockData);
+     // waitsFor(function() { return done; });
 
       runs(function(){
+    
         expect(todo).not.toBe(null);
-        expect(todo.get('completed')).toEqual(false);
-        expect(todo.get('time')).toEqual('3');
-        expect(todo.get('type')).toEqual('Running');
-        expect(todo.get('date')).toEqual('2001-02-20');
+        expect(todo.attributes.time).toEqual('3');
+        expect(todo.attributes.type).toEqual('Running');
+        expect(todo.attributes.date).toEqual('2001-02-20');
         expect(todo.id).toEqual(jasmine.any(String));
+     
+        
       });
 
     });
- /*
-    it('should fail creating a title-less todo', function() {
-      var spy = jasmine.createSpy();
-      this.todo.on('error', spy);
-      this.todo.save({});
-      expect(spy.callCount).toEqual(1);
+
+    it('should fail creating a empty training', function() {
+      expect(todo).not.toBe(null);
       expect(this.todo.id).toBeUndefined();
-    }); */
+    });
 
   });
 /*
