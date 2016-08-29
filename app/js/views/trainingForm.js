@@ -12,14 +12,14 @@ PhysicalManager.Views.TrainingForm = Backbone.View.extend({
           $group = $el.closest('.form-group');
 
         $group.removeClass('has-error');
-        $group.find('.help-block').html('').addClass('hidden');
+        $group.find('.help-block').html('&nbsp;');
       },
       invalid: function (view, attr, error, selector) {
         var $el = view.$('[name=' + attr + ']'),
           $group = $el.closest('.form-group');
 
         $group.addClass('has-error');
-        $group.find('.help-block').html(error).removeClass('hidden');
+        $group.find('.help-block').html(error);
       }
     });
   },
