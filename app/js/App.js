@@ -4,6 +4,7 @@ window.PhysicalManager = {
   Views: {},
 
   start: function (data) {
+    PhysicalManager.pubSub = _.extend({}, Backbone.Events);
     var trainings = new PhysicalManager.Collections.TrainingCollection(data.trainings),
       router = new PhysicalManager.Router();
     router.on('route:home', function () {
@@ -19,6 +20,7 @@ window.PhysicalManager = {
       });
       $('.main-container').html(trainingsView.render().$el);
       $('#totalHours').text(trainings.totalHours() + ' hours of Workout');
+      newChart("myChart",trainings);
     });
 
     router.on('route:newTraining', function () {
