@@ -1,7 +1,6 @@
 PhysicalManager.Views.Training = Backbone.View.extend({
   tagName: 'tr',
-  template: _.template($('#tpl-training').html()),
-
+  template: Handlebars.templates.training,
   events: {
     'click .delete-training': 'onClickDelete'
   },

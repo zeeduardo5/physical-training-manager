@@ -1,5 +1,5 @@
 PhysicalManager.Views.Trainings = Backbone.View.extend({
-  template: _.template($('#tpl-trainings').html()),
+  template: Handlebars.templates.trainings,
 
   initialize: function() {
 	  PhysicalManager.pubSub.on('view2event', this.onChange, this);

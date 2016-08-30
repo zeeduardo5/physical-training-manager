@@ -6,6 +6,7 @@ describe('Model :: Test', function () {
     Collections: {},
     Views: {},
   }
+  PhysicalManager.pubSub = _.extend({}, Backbone.Events);
 
   beforeEach(function () {
     var that = this,

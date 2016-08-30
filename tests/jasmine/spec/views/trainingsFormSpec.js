@@ -7,9 +7,9 @@ describe('View :: Training Form', function () {
 
     require(['js/collections/trainingcollection'], function (Todo) {
       that.trainingCollection = new PhysicalManager.Collections.TrainingCollection([mockData]);
-
     });
-    require(['js/models/training', '../vendor/backbone/jquery.serializeObject', 'js/views/trainings', 'js/views/training', 'js/views/trainingForm'], function (todo, view) {
+    require(['js/models/training', '../vendor/backbone/jquery.serializeObject','js/templates/trainingform.tpl',
+     'js/views/trainingForm' ], function (todo, view) {
       that.view = new PhysicalManager.Views.TrainingForm({ model: new PhysicalManager.Models.Training() });
       $('#sandbox').html(that.view.render().el);
       flag = true;

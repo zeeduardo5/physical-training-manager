@@ -1,5 +1,6 @@
 PhysicalManager.Views.TrainingForm = Backbone.View.extend({
-  template: _.template($('#tpl-new-training').html()),
+  //template: _.template($('#tpl-new-training').html()),
+  template: Handlebars.templates.trainingform,
 
   events: {
     'submit .training-form': 'onFormSubmit'

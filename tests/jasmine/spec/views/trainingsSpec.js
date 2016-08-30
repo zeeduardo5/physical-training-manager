@@ -9,11 +9,12 @@ describe('View :: Trainings view', function () {
       that.trainingCollection = new PhysicalManager.Collections.TrainingCollection([mockData]);
 
     });
-    require(['js/models/training', 'js/views/trainings', 'js/views/training', 'js/views/trainingForm'], function (todo, view) {
-      that.view = new PhysicalManager.Views.Trainings({ collection: this.trainingCollection });
-      $('#sandbox').html(that.view.render().el);
-      flag = true;
-    });
+    require(['js/chart', 'js/myCharts', 'js/models/training', 'js/templates/trainings.tpl',
+      'js/views/trainings', 'js/templates/training.tpl', 'js/views/training'], function (todo, view) {
+        that.view = new PhysicalManager.Views.Trainings({ collection: this.trainingCollection });
+        $('#sandbox').html(that.view.render().el);
+        flag = true;
+      });
 
     waitsFor(function () {
       return flag;

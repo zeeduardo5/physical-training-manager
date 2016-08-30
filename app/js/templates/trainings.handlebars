@@ -1,0 +1,35 @@
+ <h2 class="page-header text-center">List of Workout</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading"><span id="totalHours"></span></div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                              <th>Time Spent (h)</th>
+                              <th>Type</th>
+                              <th>Date</th>
+                              <th></th>
+                          </tr>
+                        </thead>
+                      <tbody class="trainings-container"></tbody>
+                    </table>
+                  </div>
+            </div>
+                <p class="text-center">
+                    <a href="#trainings/new" id="addButton" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Workout</a>
+                </p>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Workout Graph</div>
+                <div class="panel-body">
+                  <canvas id="myChart" width="200" height="100" >
+                      Your browser does not support the HTML5 canvas tag.</canvas>
+                  </div>
+                </div>
+          </div>
+      </div>
+    </div>

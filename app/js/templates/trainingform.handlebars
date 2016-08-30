@@ -1,0 +1,32 @@
+ <div class="container">
+        <h2 class="page-header text-center">Create Workout Log</h2>
+        <div class="panel panel-info">
+          <div class="panel-heading">Add new item</div>
+              <div class="panel-body">
+                <form role="form" class="form-inline text-center training-form" id="workout-form">
+                  <div class="form-group">
+                      <input type="number" class="form-control training-time-input" name="time" placeholder="Time-spent (H)" value="{{time}}">
+                      <span class="help-block">&nbsp;</span>
+                  </div>
+                  <div class="form-group">
+                      <select class="form-control training-type-input">
+                          <option value="Running">Run</option>
+                          <option value="Swimming">Swimming</option>
+                          <option value="Walking">Walking</option>
+                          <option value="Paddling">Paddling</option>
+                      </select>
+                      <span class="help-block">&nbsp;</span>
+                  </div>
+                  <div class="form-group">
+                      <input type="date" class="form-control training-date-input" name="date" value="{{date}}">
+                      <span class="help-block ">&nbsp;</span>
+                  </div>
+                  <div class="form-group">
+                      <button type="submit" id="submitButton" class="btn btn-success">Add</button>
+                      <a href="#trainings"  id="cancelButton" class="btn btn-danger">Cancel</a>
+                      <span class="help-block ">&nbsp;</span>
+                  </div>
+                </form>
+              </div>
+        </div>
+    </div>
