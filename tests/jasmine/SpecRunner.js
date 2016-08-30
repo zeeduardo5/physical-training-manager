@@ -47,7 +47,6 @@ require(['underscore', 'jquery', 'jasmine-html', 'backbone'], function(_, $, jas
 
   specs.push('spec/models/ModelSpec');
   specs.push('spec/views/trainingsSpec');
-  specs.push('spec/views/trainingFormSpec');
 
   $(function(){
     require(specs, function(){
