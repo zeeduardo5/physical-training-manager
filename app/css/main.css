@@ -22,9 +22,10 @@ h1, h2{
 h2{
       font-size: 40pt;
 }
-#datepicker:read-only { 
-    background-color: white;
-    cursor: pointer;
+
+.training-date-input{ 
+    background-color: white !important;
+    cursor: pointer !important;
 }
 .panel-body {
      background: #dff0d8; /* For browsers that do not support gradients */
