@@ -37,9 +37,7 @@ function newChart(id, collection) {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        min: 0,
-                        max: collection.totalHours(),
-                        stepSize: 1
+                        max: collection.totalHours()
                     },
                     scaleLabel: {
                         display: true,

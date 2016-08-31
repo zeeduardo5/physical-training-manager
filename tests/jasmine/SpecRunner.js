@@ -35,12 +35,20 @@ require.config({
 
 window.store = "TestStore"; // override local storage store name - for testing
 
-require(['underscore', 'jquery', 'jasmine-html', 'handlebars', 'backbone', 'backbonevalidation'], function (_, $, jasmine, handlebars) {
+require(['underscore', 'jquery', 'jasmine-html', 'handlebars', 'backbone', 'backbonevalidation'], function (_, $, jasmine, handlebars, backbone) {
 
   var jasmineEnv = jasmine.getEnv();
   jasmineEnv.updateInterval = 1000;
 
   window.Handlebars = handlebars;
+  window.backbone = backbone;
+  window.PhysicalManager = {
+    Models: {},
+    Collections: {},
+    Views: {},
+  };
+  PhysicalManager.pubSub = _.extend({}, Backbone.Events);
+  
   var htmlReporter = new jasmine.HtmlReporter();
 
   jasmineEnv.addReporter(htmlReporter);

@@ -1,12 +1,8 @@
 describe('Model :: Test', function () {
   var mockData = { id: '1', time: '3', type: 'Running', date: '2001-02-20' };
   var mockData2 = { id: '2', time: '4', type: 'Running', date: '2001-02-20' };
-  window.PhysicalManager = {
-    Models: {},
-    Collections: {},
-    Views: {},
-  }
-  PhysicalManager.pubSub = _.extend({}, Backbone.Events);
+ 
+ 
 
   beforeEach(function () {
     var that = this,
