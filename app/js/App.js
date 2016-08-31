@@ -35,6 +35,8 @@ window.PhysicalManager = {
       });
 
       $('.main-container').html(newTrainingForm.render().$el);
+      $('#datepicker').prop('readonly', true);
+      $("#datepicker" ).datepicker({ dateFormat: "yy-mm-dd",showButtonPanel: true});
     });
     Backbone.history.start();
   }

@@ -18,14 +18,14 @@ describe('View :: Trainings view', function () {
 
     waitsFor(function () {
       return flag;
-    });
+    },"create views",5000);
   });
 
   afterEach(function () {
     this.view.remove();
   });
 
-  describe('Shows And Hides', function () {
+  describe('Elements on view', function () {
     it('should be visible', function () {
       expect(this.view.$el.is(':visible')).toEqual(true);
     });

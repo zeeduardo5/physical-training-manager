@@ -23,7 +23,7 @@ describe('Model :: Test', function () {
 
     waitsFor(function () {
       return done;
-    }, "Create Models");
+    }, "Create Models",5000);
 
   });
 

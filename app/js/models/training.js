@@ -7,7 +7,7 @@ PhysicalManager.Models.Training = Backbone.Model.extend({
     validation: {
         time: {
             required: true,
-            msg: 'Please enter a valid time',
+            msg: 'Please enter a valid time [1h-24h]',
             range: [1,24]
         },
         date: {

@@ -17,7 +17,7 @@ describe('View :: Training Form', function () {
 
     waitsFor(function () {
       return flag;
-    });
+    },"createViews",4000);
   });
 
   afterEach(function () {
@@ -56,14 +56,14 @@ describe('View :: Training Form', function () {
       it('should be invalid when time is missing', function () {
         $('.training-date-input').val('2001-02-20');
         $('#submitButton').click();
-        expect($('.help-block').text().trim()).toBe('Please enter a valid time');
+        expect($('.help-block').text().trim()).toBe('Please enter a valid time [1h-24h]');
       });
 
       it('should be invalid when time is negative', function () {
         $('.training-date-input').val('2001-02-20');
         $('.training-time-input').val('-3');
         $('#submitButton').click();
-        expect($('.help-block').text().trim()).toBe('Please enter a valid time');
+        expect($('.help-block').text().trim()).toBe('Please enter a valid time [1h-24h]');
       });
 
       it('should be valid', function () {

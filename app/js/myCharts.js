@@ -1,53 +1,63 @@
 function newChart(id, collection) {
     var ctx = document.getElementById(id);
+
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Total Hours", "Total Hours Today", "Running", "Swimming", "Walking", "Paddling"],
+            labels: ["Running", "Swimming", "Walking", "Paddling"],
             datasets: [{
                 label: {
                     display: false
                 },
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(255,0,0,0.3)',
                     'rgba(75, 192, 192, 0.2)',
                     'rgba(153, 102, 255, 0.2)',
                     'rgba(255, 159, 64, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
+                    'rgba(255,0,0,0.3)',
                     'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'
                 ],
-                data: [collection.totalHours(),
-                    collection.length > 0 ? collection.first().attributes.time : '0',
+                data: [
                     collection.totalHoursPerType('Running'),
                     collection.totalHoursPerType('Swimming'),
                     collection.totalHoursPerType('Walking'),
                     collection.totalHoursPerType('Paddling')],
-                borderWidth: 1
+                borderWidth: 0
             }]
+        },
+        tooltip : {
+            display	:false
         },
         options: {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        min: 0,
+                        max: collection.totalHours(),
+                        stepSize: 1
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Total Hours (h)'
                     }
                 }]
             },
             title: {
                 display: true,
-                text: 'Custom Chart Title'
+                text: collection.totalHours() + ' hours of Workout'
             },
             legend: {
                 display: false
-            }
+            },
+            tooltips:{
+       
+                enabled :false
+            } 
 
         }
     });

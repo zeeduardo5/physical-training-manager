@@ -39,7 +39,7 @@ PhysicalManager.Views.TrainingForm = Backbone.View.extend({
     this.model.set(data);
      if(this.model.isValid(true)){
             this.trigger('form:submitted', {
-      time: this.$('.training-time-input').val(),
+      time: parseInt(this.$('.training-time-input').val(),10),
       type: this.$('.training-type-input').val(),
       date: this.$('.training-date-input').val()
     });
