@@ -8,16 +8,16 @@ describe('View :: Training Form', function () {
     require(['js/collections/trainingcollection'], function (Todo) {
       that.trainingCollection = new PhysicalManager.Collections.TrainingCollection([mockData]);
     });
-    require(['js/models/training', '../vendor/backbone/jquery.serializeObject','js/templates/trainingform.tpl',
-     'js/views/trainingForm' ], function (todo, view) {
-      that.view = new PhysicalManager.Views.TrainingForm({ model: new PhysicalManager.Models.Training() });
-      $('#sandbox').html(that.view.render().el);
-      flag = true;
-    });
+    require(['js/models/training', '../vendor/jquery.serializeObject', 'js/templates/trainingform.tpl',
+      'js/views/trainingForm'], function (todo, view) {
+        that.view = new PhysicalManager.Views.TrainingForm({ model: new PhysicalManager.Models.Training() });
+        $('#sandbox').html(that.view.render().el);
+        flag = true;
+      });
 
     waitsFor(function () {
       return flag;
-    },"createViews",4000);
+    }, "createViews", 5000);
   });
 
   afterEach(function () {
@@ -42,7 +42,7 @@ describe('View :: Training Form', function () {
 
     });
     describe('Validation', function () {
-      
+
       it('should have panel', function () {
         expect($('.panel-heading')).not.toBe(null);
       });

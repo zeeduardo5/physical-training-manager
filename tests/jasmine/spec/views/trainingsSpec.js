@@ -1,6 +1,5 @@
 describe('View :: Trainings view', function () {
   var mockData = { id: '1', time: '3', type: 'Running', date: '2001-02-20' };
-  var formView;
   beforeEach(function () {
     var flag = false,
       that = this;
@@ -9,7 +8,7 @@ describe('View :: Trainings view', function () {
       that.trainingCollection = new PhysicalManager.Collections.TrainingCollection([mockData]);
 
     });
-    require(['js/chart', 'js/myCharts', 'js/models/training', 'js/templates/trainings.tpl',
+    require(['../vendor/chart', 'js/myCharts', 'js/models/training', 'js/templates/trainings.tpl',
       'js/views/trainings', 'js/templates/training.tpl', 'js/views/training'], function (todo, view) {
         that.view = new PhysicalManager.Views.Trainings({ collection: this.trainingCollection });
         $('#sandbox').html(that.view.render().el);
@@ -18,7 +17,7 @@ describe('View :: Trainings view', function () {
 
     waitsFor(function () {
       return flag;
-    },"create views",5000);
+    }, "create views", 5000);
   });
 
   afterEach(function () {

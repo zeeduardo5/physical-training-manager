@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Physical Activity App</title>
+    <title>BE FIT</title>
     <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="vendor/jquery-ui/themes/base/jquery-ui.css">
+    <link href="vendor/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet">
     <link href="app/css/main.css" rel="stylesheet">
   </head>
   <body>
@@ -24,22 +24,22 @@
     <script src="vendor/jquery/dist/jquery.js"></script>
     <script src="vendor/jquery-ui/jquery-ui.js"></script>
     <script src="vendor/handlebars/handlebars.js"></script>
-    <script src="app/js/templates/training.tpl.js"></script>
-    <script src="app/js/templates/trainings.tpl.js"></script>
-    <script src="app/js/templates/trainingform.tpl.js"></script>
-    <script src="app/js/chart.js"></script>
+    <script src="vendor/chart.js"></script>
     <script src="vendor/underscore/underscore.js"></script>
     <script src="vendor/backbone/backbone.js"></script>
     <script src="vendor/backbone/backbone-validation.js"></script>
-    <script src="vendor/backbone/jquery.serializeObject.js"></script>
+    <script src="vendor/jquery.serializeObject.js"></script>
     <script src="app/js/myCharts.js"></script>
-    <script src="app/js/App.js"></script>
+    <script src="app/js/app.js"></script>
     <script src="app/js/router.js"></script>
+    <script src="app/js/models/training.js"></script>
+    <script src="app/js/collections/trainingcollection.js"></script>
+    <script src="app/js/templates/training.tpl.js"></script>
+    <script src="app/js/templates/trainings.tpl.js"></script>
+    <script src="app/js/templates/trainingform.tpl.js"></script>
     <script src="app/js/views/training.js"></script>
     <script src="app/js/views/trainings.js"></script>
     <script src="app/js/views/trainingForm.js"></script>
-    <script src="app/js/models/training.js"></script>
-    <script src="app/js/collections/trainingcollection.js"></script>
     <script>
       $(function() {
         PhysicalManager.start({
@@ -48,13 +48,19 @@
               id: 1,
               time : '3',
               type: 'Running',
-              date: '2000-02-22'
+              date: '2016-08-29'
             },
             {
               id: 2,
               time : '4',
               type: 'Walking',
-              date: '2001-02-20'
+              date: '2016-08-30'
+            },
+            {
+              id: 3,
+              time : '2',
+              type: 'Swimming',
+              date: '2016-08-31'
             }
           ]
         });
@@ -62,7 +68,7 @@
     </script>
     <footer>
       <div class="container">
-        <h5>Physical Activity App</h5>
+        <h5>Be Fit</h5>
       </div>
       </footer>
   </body>
